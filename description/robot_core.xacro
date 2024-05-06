@@ -19,6 +19,18 @@
     <link name="base_link">
 
     </link>
+
+
+<!-- base footprint -->
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_footprint">
+    </link>
+
 <!-- CHASSIS LINK-->
 
     <joint name="chassis_joint" type="fixed">
@@ -40,15 +52,13 @@
                 <box size="0.22 0.12 0.08"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.22" y="0.12" z="0.04">
+        <!-- <xacro:inertial_box mass="0.5" x="0.22" y="0.12" z="0.04">
             <origin xyz="0.11 0 0" rpy="0 0 0 "/>
-        </xacro:inertial_box>
+        </xacro:inertial_box> -->
 
     </link>
 
     <gazebo reference="chassis">
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
         <material>Gazebo/White</material>
     </gazebo>
 
@@ -69,12 +79,12 @@
         </visual>
         <collision>
             <geometry>
-                <sphere  radius="0.032"/>
+                <cylinder  radius="0.032" length="0.03"/>
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.03" radius="0.032">
+        <!-- <xacro:inertial_cylinder mass="0.1" length="0.03" radius="0.032">
             <origin xyz="0 0. 0" rpy="0 0 0"/> 
-        </xacro:inertial_cylinder>  
+        </xacro:inertial_cylinder>   -->
        
     </link>
     <gazebo reference="left_back_wheel">
@@ -99,13 +109,13 @@
         </visual>
         <collision>
             <geometry>
-                <sphere  radius="0.032"/>
+                <cylinder  radius="0.032 " length="0.03"/>
             </geometry>
             
         </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.03" radius="0.032">
+        <!-- <xacro:inertial_cylinder mass="0.1" length="0.03" radius="0.032">
             <origin xyz="0 0. 0" rpy="0 0 0"/> 
-        </xacro:inertial_cylinder> 
+        </xacro:inertial_cylinder>  -->
         
     </link>
     <gazebo reference="right_back_wheel">
@@ -139,8 +149,8 @@
         </xacro:inertial_sphere> 
     </link>
     <gazebo reference="cast_wheel">
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
+        <!-- <mu1>0.2</mu1>
+        <mu2>0.2</mu2> -->
         <material>Gazebo/Black</material>
     </gazebo>
 

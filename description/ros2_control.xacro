@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
-
+ 
 <ros2_control name="realrobot" type="system">
     <hardware>
         <plugin>diffdrive_arduino/DiffDriveArduinoHardware</plugin>
@@ -10,7 +10,7 @@
         <param name="device">/dev/ttyACM0</param>
         <param name="baud_rate">57600</param>
         <param name="timeout_ms">1000</param>
-        <param name="enc_counts_per_rev">1240</param>
+        <param name="enc_counts_per_rev">24</param>
     </hardware>
     <joint name="left_back_wheel_joint">
         <command_interface name="velocity">
@@ -32,10 +32,9 @@
         <state_interface name="velocity"/>
     </joint>
 
-</ros2_control>
+</ros2_control> 
 
-<!-- 
-<ros2_control name="GazeboSystem" type="system">
+<!-- <ros2_control name="GazeboSystem" type="system">
     <hardware>
         <plugin>gazebo_ros2_control/GazeboSystem</plugin>
     </hardware>
@@ -61,7 +60,7 @@
         <state_interface name="position"/>
     </joint>
 
-</ros2_control> -->
+</ros2_control>  -->
 
 
 <gazebo>
